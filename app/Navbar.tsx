@@ -77,7 +77,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="w-full shadow-[0_0_10px_rgba(0,0,0,0.09)] flex bg-white justify-between items-center z-50 px-6  sm:px-12 relative sm:py-2">
+    <nav className="w-full shadow-[0_0_10px_rgba(0,0,0,0.09)] flex bg-white justify-between items-center z-50 px-6  sm:px-12 relative sm:py-4">
       <Link
         href="/"
         padding="2"
