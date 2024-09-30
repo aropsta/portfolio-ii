@@ -26,7 +26,7 @@ const Tech = () => {
       {items.map((item, index) => (
         <Image
           key={index}
-          height="2.5rem"
+          height="3rem"
           src={`/${item}`}
           alt={item}
           maxWidth="10rem"
