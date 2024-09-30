@@ -15,6 +15,7 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
+import Tech from "./components/Logos";
 
 export const metadata: Metadata = {
   title: "Create Next App",
