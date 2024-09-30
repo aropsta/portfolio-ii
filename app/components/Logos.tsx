@@ -1,6 +1,5 @@
 "use client";
-import { Image, Box, HStack, keyframes, Flex } from "@chakra-ui/react";
-import React, { useEffect, useRef } from "react";
+import { Image, Flex } from "@chakra-ui/react";
 const items = [
   "html.svg",
   "css.svg",
@@ -30,7 +29,7 @@ const Tech = () => {
           height="3rem"
           src={`/${item}`}
           alt={item}
-          maxWidth="9rem"
+          maxWidth="10rem"
         />
       ))}
     </Flex>
