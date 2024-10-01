@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Providers } from "./Providers";
 import "./globals.css";
 import Navbar from "./Navbar";
-import { Container, Flex } from "@chakra-ui/react";
 
 // Import Poppins font
 import "@fontsource/poppins/100.css";
@@ -15,7 +13,6 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
-import Tech from "./components/Logos";
 
 export const metadata: Metadata = {
   title: "Create Next App",

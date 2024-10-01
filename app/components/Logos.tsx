@@ -22,7 +22,7 @@ const items = [
 
 const Tech = () => {
   return (
-    <Flex wrap="wrap" gap="2">
+    <Flex wrap="wrap" gap="2" justifyContent="center">
       {items.map((item, index) => (
         <Image
           key={index}
