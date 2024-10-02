@@ -10,9 +10,13 @@ const menu = [
     href: "/#projects",
   },
   {
-    title: "Case study",
-    href: "/case-study",
+    title: "About",
+    href: "/#about",
   },
+  // {
+  //   title: "Case study",
+  //   href: "/case-study",
+  // },
   {
     title: "Contact",
     href: "/#contact",
@@ -63,6 +67,7 @@ const Navbar = () => {
           <li key={i}>
             <Link
               fontWeight="600"
+              scrollBehavior="smooth"
               fontSize="17px"
               _hover={{ color: "primary.400" }}
               transition="color 0.24s ease"

@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Text,
-  Image,
-  CardFooter,
-  ButtonGroup,
-  Card,
-  CardBody,
-  Heading,
-  Stack,
-} from "@chakra-ui/react";
+import { Text, Image, Card, CardBody, Heading, Stack } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import { ProjectItem } from "../Projects";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
@@ -35,34 +26,28 @@ const ProjectCard = ({ project }: Props) => {
           borderRadius="sm"
         />
         <Stack mt="6" spacing="3">
-          <Heading fontSize="xl">{project.title}</Heading>
+          <Link
+            href={project.site}
+            referrerPolicy="no-referrer"
+            color="primary.400"
+            target="_blank"
+          >
+            <Heading fontSize="xl">{project.title}</Heading>
+          </Link>
+
           <Text color="#555">{project.description}</Text>
-        </Stack>
-      </CardBody>
-      <CardFooter>
-        <ButtonGroup spacing="4" fontWeight="600">
           <Link
             href={project.git}
             variant="solid"
             referrerPolicy="no-referrer"
             color="primary.400"
-            verticalAlign="center"
             target="_blank"
           >
-            Github
+            Github code
             <ExternalLinkIcon mx="2px" textAlign="center" />
           </Link>
-          <Link
-            href={project.site}
-            variant="solid"
-            color="primary.400"
-            target="_blank"
-          >
-            Active site
-            <ExternalLinkIcon mx="2px" textAlign="center" />
-          </Link>
-        </ButtonGroup>
-      </CardFooter>
+        </Stack>
+      </CardBody>
     </Card>
   );
 };

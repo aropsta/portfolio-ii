@@ -1,13 +1,10 @@
 import {
   IconButton,
-  Text,
-  Box,
   Image,
   useInterval,
   Flex,
   Heading,
   Card,
-  useTheme,
 } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
@@ -18,16 +15,16 @@ interface ImageCarouselProps {
   interval?: number;
 }
 
-const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
+const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const filtererdItems = items.filter((item, i) => i > 1);
 
-  // useInterval(() => {
-  //   if (!isPaused) {
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % filtererdItems.length);
-  //   }
-  // }, interval);
+  useInterval(() => {
+    if (!isPaused) {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % filtererdItems.length);
+    }
+  }, interval);
 
   const handlePrev = () => {
     setIsPaused(true);
@@ -65,7 +62,7 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
           href={filtererdItems[currentIndex].site}
           target="_blank"
           _hover={{
-            transform: "scale(1.05)",
+            transform: "scale(1.01)",
           }}
         >
           <Image
@@ -87,6 +84,8 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         right="1%"
         top="50%"
         transform="translateY(-50%)"
+        fontSize="3xl"
+        colorScheme="primary"
         onClick={handleNext}
       />
       <IconButton
@@ -94,6 +93,8 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         icon={<ChevronLeftIcon />}
         position="absolute"
         left="1%"
+        fontSize="3xl"
+        colorScheme="primary"
         top="50%"
         transform="translateY(-50%)"
         onClick={handlePrev}

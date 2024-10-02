@@ -16,7 +16,7 @@ const MorphContainer = () => {
 `;
   return (
     <Box
-      boxShadow="outline"
+      boxShadow="dark-lg"
       zIndex="10"
       // backgroundColor="gray"
       backgroundImage="url('/port.jpg')"
