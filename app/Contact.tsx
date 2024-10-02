@@ -2,6 +2,10 @@
 import React, { useState } from "react";
 import {
   Text,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
   Box,
   Textarea,
   Heading,
@@ -15,9 +19,10 @@ import {
   Button,
   FormHelperText,
   FormErrorMessage,
+  Spinner,
 } from "@chakra-ui/react";
 
-import { useForm } from "react-hook-form";
+import { FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
 // const formValidation = z.Object({
 //   name: z
 //     .string()
@@ -36,15 +41,17 @@ const Contact = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    getValues,
+    formState: { errors, isSubmitting, isSubmitSuccessful, isDirty, isValid },
   } = useForm();
 
   const [error, setError] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log("onSubmit()");
     try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log("onSubmit()");
+      console.log(getValues());
       // setSubmitting(true);
       //...
       //
@@ -55,6 +62,26 @@ const Contact = () => {
       // setSubmitting(false);
     }
   });
+
+  const SendResultAlert = () => {
+    return (
+      isSubmitSuccessful && (
+        <Alert status="success">
+          <AlertIcon />
+          <AlertTitle>Success!</AlertTitle>
+          <AlertDescription>
+            If I don't respond in a few days then feel free to contact me first.
+            I'm on linkedIn and my contact information is also on my resume
+          </AlertDescription>
+        </Alert>
+      )
+    );
+  };
+
+  function ErrorMessage(message: string | undefined) {
+    return <FormErrorMessage>{message}</FormErrorMessage>;
+  }
+
   return (
     <Flex
       className="w-[100%] h-full py-28"
@@ -66,40 +93,66 @@ const Contact = () => {
         <Card p="10" alignSelf="center" gap="8">
           <Heading color="primary.400">Contact me</Heading>
           <form onSubmit={onSubmit} className="flex gap-2 flex-col">
-            <FormControl>
+            {SendResultAlert()}
+            <FormControl isInvalid={!!errors.name}>
               <FormLabel>Name</FormLabel>
-              <Input placeholder="Name" />
-              {errors && (
-                <FormErrorMessage>Email is required.</FormErrorMessage>
-              )}
+              <Input
+                placeholder="Name"
+                {...register("name", {
+                  required: "A name is required",
+                })}
+              />
+              {!!errors.name && ErrorMessage(errors?.name?.message?.toString())}
             </FormControl>
 
-            <FormControl>
+            <FormControl isInvalid={!!errors.email}>
               <FormLabel>Email</FormLabel>
-              <Input placeholder="Email" />
+              <Input
+                placeholder="Email"
+                type="email"
+                {...register("email", { required: "An email is required" })}
+              />
+              {!!errors.email &&
+                ErrorMessage(errors?.email?.message?.toString())}
             </FormControl>
             <FormControl>
               <FormLabel>Phone</FormLabel>
-              <Input placeholder="Phone number" type="tel" />
+              <Input
+                placeholder="Phone number"
+                type="tel"
+                {...register("phone")}
+              />
             </FormControl>
             <FormControl>
               <FormLabel>Company</FormLabel>
 
               <Input placeholder="Company" {...register("company")} />
             </FormControl>
-            <FormControl>
+            <FormControl isInvalid={!!errors.message}>
               <FormLabel>Message</FormLabel>
-              <Textarea placeholder="Enter your message" />
+              <Textarea
+                placeholder="Enter your message"
+                {...register("message", {
+                  required: "A message is required",
+                  minLength: {
+                    value: 20,
+                    message: "Message must be at least 20 characters",
+                  },
+                })}
+              />
+              {!!errors.message &&
+                ErrorMessage(errors?.message?.message?.toString())}
             </FormControl>
 
             <Button
               variant="solid"
               type="submit"
+              isDisabled={isSubmitting}
               colorScheme="primary"
               maxWidth="max-content"
               alignSelf="center"
             >
-              Send
+              Send {isSubmitting && <Spinner />}
             </Button>
           </form>
         </Card>
