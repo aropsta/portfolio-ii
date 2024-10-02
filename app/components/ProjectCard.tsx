@@ -10,18 +10,18 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
-import { Project } from "../Projects";
+import { ProjectItem } from "../Projects";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 interface Props {
-  project: Project;
+  project: ProjectItem;
 }
 
 const ProjectCard = ({ project }: Props) => {
   return (
     <Card
-      maxW="md"
-      padding="4"
+      maxW="sm"
+      padding="3"
       variant="elevated"
       _hover={{
         transform: "scale(1.05)",
@@ -47,12 +47,18 @@ const ProjectCard = ({ project }: Props) => {
             referrerPolicy="no-referrer"
             color="primary.400"
             verticalAlign="center"
+            target="_blank"
           >
             Github
             <ExternalLinkIcon mx="2px" textAlign="center" />
           </Link>
-          <Link href={project.site} variant="solid" color="primary.400">
-            LinkedIn
+          <Link
+            href={project.site}
+            variant="solid"
+            color="primary.400"
+            target="_blank"
+          >
+            Active site
             <ExternalLinkIcon mx="2px" textAlign="center" />
           </Link>
         </ButtonGroup>

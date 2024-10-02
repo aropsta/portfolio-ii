@@ -1,18 +1,11 @@
 "use client";
-import {
-  Image,
-  Flex,
-  Tooltip,
-  Box,
-  forwardRef,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { ForwardedRef } from "react";
-interface Item {
+import { Image, Flex, Tooltip } from "@chakra-ui/react";
+
+interface SVGLogo {
   label: string;
   file: string;
 }
-const items: Item[] = [
+const items: SVGLogo[] = [
   {
     label: "HTML",
     file: "html.svg",
@@ -77,7 +70,6 @@ const items: Item[] = [
     label: "Axios",
     file: "axios.svg",
   },
-  // Add more logo paths here
 ];
 
 const Tech = () => {
@@ -87,6 +79,7 @@ const Tech = () => {
         <Tooltip label={item.label} hasArrow key={index}>
           <Image
             height="3rem"
+            style={{ pointerEvents: "auto" }}
             src={item.file}
             alt={item.label}
             maxWidth="10rem"

@@ -1,74 +1,102 @@
-"use client";
-// components/Carousel.tsx
-import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import {
+  IconButton,
+  Text,
+  Box,
+  Image,
+  useInterval,
+  Flex,
+  Heading,
+  Card,
+  useTheme,
+} from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-interface CarouselProps {
-  items: { src: string; alt: string }[];
+import { ProjectItem } from "../Projects";
+import { Link } from "@chakra-ui/next-js";
+interface ImageCarouselProps {
+  items: ProjectItem[];
+  interval?: number;
 }
 
-const items = [
-  { src: "/axios.svg", alt: "Image 1" },
-  { src: "/bash.svg", alt: "Image 2" },
-  { src: "/java.svg", alt: "Image 3" },
-];
-
-const Carousel = () => {
+const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalItems = items.length;
+  const [isPaused, setIsPaused] = useState(false);
+  const filtererdItems = items.filter((item, i) => i > 1);
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalItems - 1 : prevIndex - 1,
+  // useInterval(() => {
+  //   if (!isPaused) {
+  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % filtererdItems.length);
+  //   }
+  // }, interval);
+
+  const handlePrev = () => {
+    setIsPaused(true);
+    setCurrentIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + filtererdItems.length) % filtererdItems.length,
     );
   };
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === totalItems - 1 ? 0 : prevIndex + 1,
-    );
+  const handleNext = () => {
+    setIsPaused(true);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % filtererdItems.length);
   };
+
+  const getPrevIndex = () =>
+    currentIndex === 0 ? filtererdItems.length - 1 : currentIndex - 1;
+  const getNextIndex = () =>
+    currentIndex === filtererdItems.length - 1 ? 0 : currentIndex + 1;
 
   return (
-    <Box position="relative" width="full" overflow="hidden">
-      {items.map((item, index) => (
-        <Box
-          key={index}
-          display={index === currentIndex ? "block" : "none"}
-          width="full"
-          height="300px"
-          backgroundImage={`url(${item.src})`}
-          backgroundSize="cover"
-          backgroundPosition="center"
+    <Card className="relative flex w-full overflow-hidden flex-col gap-5 p-16">
+      <Heading as="h3" fontSize="2xl" color="primary.400">
+        <Link target="_blank" href={filtererdItems[currentIndex].git}>
+          {filtererdItems[currentIndex].title}
+        </Link>
+      </Heading>
+      <Flex justify="center" align="center" gap="2">
+        <Image
+          src={filtererdItems[getPrevIndex()].img}
+          alt={`Image ${getPrevIndex() + 1}`}
+          width="90%"
+          opacity={0.4}
+        />
+        <Link
+          href={filtererdItems[currentIndex].site}
+          target="_blank"
+          _hover={{ outline: `2px solid ${useTheme().colors.primary[400]}` }}
         >
-          <Box
-            position="absolute"
-            top="50%"
-            left="10px"
-            transform="translateY(-50%)"
-          >
-            <IconButton
-              aria-label="Previous Slide"
-              icon={<FaArrowLeft />}
-              onClick={prevSlide}
-            />
-          </Box>
-          <Box
-            position="absolute"
-            top="50%"
-            right="10px"
-            transform="translateY(-50%)"
-          >
-            <IconButton
-              aria-label="Next Slide"
-              icon={<FaArrowRight />}
-              onClick={nextSlide}
-            />
-          </Box>
-        </Box>
-      ))}
-    </Box>
+          <Image
+            src={filtererdItems[currentIndex].img}
+            alt={`Image ${currentIndex + 1}`}
+          />
+        </Link>
+        <Image
+          src={filtererdItems[getNextIndex()].img}
+          alt={`Image ${getNextIndex() + 1}`}
+          width="90%"
+          opacity={0.4}
+        />
+      </Flex>
+      <IconButton
+        aria-label="Next Image"
+        icon={<ChevronRightIcon />}
+        position="absolute"
+        right={0}
+        top="50%"
+        transform="translateY(-50%)"
+        onClick={handleNext}
+      />
+      <IconButton
+        aria-label="Previous Image"
+        icon={<ChevronLeftIcon />}
+        position="absolute"
+        left={0}
+        top="50%"
+        transform="translateY(-50%)"
+        onClick={handlePrev}
+      />
+    </Card>
   );
 };
 

@@ -9,7 +9,7 @@ function Hero() {
   return (
     <Flex
       backgroundColor="gray.50"
-      className="w-[100%] h-full py-28"
+      className="w-[100%] py-28"
       flexDirection="column"
     >
       <Container maxWidth="container.lg" className="flex gap-32 flex-col">

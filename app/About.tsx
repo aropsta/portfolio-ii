@@ -7,11 +7,11 @@ import TechLogos from "./components/Logos";
 
 const About = () => {
   return (
-    <Flex className="w-[100%] h-full py-28" flexDirection="column">
+    <Flex className="w-[100%] py-28" flexDirection="column">
       <Container maxWidth="container.lg" className="flex gap-16 flex-col">
         <Flex className="sm:flex-row flex flex-col gap-4">
           <Box className="flex relative flex-col max-w-[36rem] gap-6">
-            <Heading as="h2" color="primary.400">
+            <Heading as="h2" color="primary.400" id="about">
               ABOUT ME
             </Heading>
             <Text fontSize="xl" fontWeight="700">
