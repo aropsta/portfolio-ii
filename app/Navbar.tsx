@@ -7,7 +7,7 @@ import { Text } from "@chakra-ui/react";
 const menu = [
   {
     title: "Projects",
-    href: "/projects",
+    href: "/#projects",
   },
   {
     title: "Case study",

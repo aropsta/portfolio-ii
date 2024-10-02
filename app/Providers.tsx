@@ -5,7 +5,8 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 //custom colors for ChakraUI
 const colors = {
   primary: {
-    400: "#147efb",
+    100: "hsl(212,80%,53%)",
+    400: "hsl(212, 95%, 53%, 1)",
   },
   gray: {
     50: "#f9f9f9",

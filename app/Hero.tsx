@@ -31,7 +31,6 @@ function Hero() {
             {/*   alt="portrait" */}
             {/*   className="overflow-hidden z-0 w-[100%] h-[100%] bg-contain" */}
             {/* ></Image> */}
-            <div></div>
           </MorphContainer>
         </Flex>
         <Flex flexDirection="row" className="" gap="4">

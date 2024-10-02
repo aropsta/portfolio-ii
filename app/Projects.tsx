@@ -100,7 +100,7 @@ const Projects = () => {
         <Heading color="primary.400" id="projects">
           Projects
         </Heading>
-        <Flex justifyContent="center" gap="4">
+        <Flex justifyContent="center" gap="4" wrap="wrap">
           {projects.slice(0, 2).map((item, index) => (
             <ProjectCard key={index} project={item} />
           ))}

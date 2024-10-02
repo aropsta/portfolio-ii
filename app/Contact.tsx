@@ -1,24 +1,47 @@
 "use client";
 import React from "react";
-import { Text, Box, Heading, Flex, Container, Wrap } from "@chakra-ui/react";
+import {
+  Text,
+  Box,
+  Textarea,
+  Heading,
+  Flex,
+  Container,
+  Wrap,
+  FormControl,
+  FormLabel,
+  Input,
+  Card,
+  Button,
+} from "@chakra-ui/react";
 
 const Contact = () => {
   function handleSubmit() {}
   return (
     <Flex
       className="w-[100%] h-full py-28"
-      backgroundColor="gray.50"
+      backgroundColor="white"
       flexDirection="column"
     >
       <Container maxWidth="container.lg" className="flex gap-16 flex-col">
-        <form className="form" onSubmit={handleSubmit}>
-          {/* {validForm && submitted ? <p className="sent">Sent successfully!</p> : <></>} */}{" "}
-          <h2 aria-label="Contact me">Contact me</h2>{" "}
-          <p className="required">
-            Required fields are followed by <abbr title="required">*</abbr>{" "}
-          </p>
-          <button type="submit">Send</button>
-        </form>
+        <Card p="10" alignSelf="center" gap="8">
+          <Heading id="contact" color="primary.400">
+            Contact me
+          </Heading>
+          <FormControl className="flex gap-2 flex-col">
+            <FormLabel>Name</FormLabel>
+            <Input placeholder="Name" required />
+            <FormLabel>Email</FormLabel>
+            <Input placeholder="Email" required type="email" />
+            <FormLabel>Phone</FormLabel>
+            <Input placeholder="Phone number" type="tel" />
+            <FormLabel>Company</FormLabel>
+            <Input placeholder="Company" />
+            <FormLabel>Message</FormLabel>
+            <Textarea placeholder="Enter your message" />
+            <Button>Submit</Button>
+          </FormControl>
+        </Card>
       </Container>
     </Flex>
   );

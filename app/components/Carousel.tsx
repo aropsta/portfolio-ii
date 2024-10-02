@@ -58,13 +58,15 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         <Image
           src={filtererdItems[getPrevIndex()].img}
           alt={`Image ${getPrevIndex() + 1}`}
-          width="90%"
+          width="33%"
           opacity={0.4}
         />
         <Link
           href={filtererdItems[currentIndex].site}
           target="_blank"
-          _hover={{ outline: `2px solid ${useTheme().colors.primary[400]}` }}
+          _hover={{
+            transform: "scale(1.05)",
+          }}
         >
           <Image
             src={filtererdItems[currentIndex].img}
@@ -74,7 +76,7 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         <Image
           src={filtererdItems[getNextIndex()].img}
           alt={`Image ${getNextIndex() + 1}`}
-          width="90%"
+          width="33%"
           opacity={0.4}
         />
       </Flex>
@@ -82,7 +84,7 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         aria-label="Next Image"
         icon={<ChevronRightIcon />}
         position="absolute"
-        right={0}
+        right="1%"
         top="50%"
         transform="translateY(-50%)"
         onClick={handleNext}
@@ -91,7 +93,7 @@ const Carousel = ({ items, interval = 3000 }: ImageCarouselProps) => {
         aria-label="Previous Image"
         icon={<ChevronLeftIcon />}
         position="absolute"
-        left={0}
+        left="1%"
         top="50%"
         transform="translateY(-50%)"
         onClick={handlePrev}
