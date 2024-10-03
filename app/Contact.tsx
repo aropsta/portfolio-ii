@@ -1,39 +1,37 @@
 "use client";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
 import {
-  Text,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Box,
   Textarea,
   Heading,
   Flex,
   Container,
-  Wrap,
   FormControl,
   FormLabel,
   Input,
   Card,
   Button,
-  FormHelperText,
   FormErrorMessage,
   Spinner,
 } from "@chakra-ui/react";
 
-import { FieldError, FieldErrorsImpl, Merge, useForm } from "react-hook-form";
-// const formValidation = z.Object({
-//   name: z
-//     .string()
-//     .min(2, "Name greater than 2 characters is required")
-//     .max(255),
-//   email: z.string().max(255),
-//   message: z
-//     .string()
-//     .min(2, "A message greater than 2 characters is required")
-//     .max(63333),
-// });
+import { useForm } from "react-hook-form";
+
+interface FormInputs {
+  name: string;
+  email: string;
+  phone: number;
+  company: string;
+  message: string;
+}
 
 const Contact = () => {
   //TODO: handle submit and form validation
@@ -41,42 +39,45 @@ const Contact = () => {
     register,
     reset,
     handleSubmit,
-    getValues,
-    formState: { errors, isSubmitting, isSubmitSuccessful, isDirty, isValid },
-  } = useForm();
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<FormInputs>();
 
-  const [error, setError] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  // initialize emailjs
+  emailjs.init(EMAILJS_PUBLIC_KEY);
 
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = async (data: FormInputs) => {
+    const formData = {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      message: data.message,
+    };
+
+    console.log("onSubmit()", formData);
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("onSubmit()");
-      console.log(getValues());
-      // setSubmitting(true);
-      //...
-      //
-      reset();
-      // setSubmitting(true);
-    } catch (err) {
-      setError(true);
-      // setSubmitting(false);
-    }
-  });
+      setSubmitError(null); // Clear any previous errors
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formData,
+      );
 
-  const SendResultAlert = () => {
-    return (
-      isSubmitSuccessful && (
-        <Alert status="success">
-          <AlertIcon />
-          <AlertTitle>Success!</AlertTitle>
-          <AlertDescription>
-            If I don't respond in a few days then feel free to contact me first.
-            I'm on linkedIn and my contact information is also on my resume
-          </AlertDescription>
-        </Alert>
-      )
-    );
+      if (response.status === 200) {
+        reset();
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitError("Failed to send message. Please try again later.");
+    }
   };
+
+  //Emailjs network error if onSubmit is not await'd
+  const handleFormSubmit = handleSubmit(async (data) => {
+    await onSubmit(data);
+  });
 
   function ErrorMessage(message: string | undefined) {
     return <FormErrorMessage>{message}</FormErrorMessage>;
@@ -92,8 +93,26 @@ const Contact = () => {
       <Container maxWidth="container.lg" className="flex gap-16 flex-col">
         <Card p="10" alignSelf="center" gap="8">
           <Heading color="primary.400">Contact me</Heading>
-          <form onSubmit={onSubmit} className="flex gap-2 flex-col">
-            {SendResultAlert()}
+          {isSubmitSuccessful && !submitError && (
+            <Alert status="success">
+              <AlertIcon />
+              <AlertTitle>Message sent!</AlertTitle>
+              <AlertDescription>
+                Thank you for your message. I&apos;ll get back to you soon.
+              </AlertDescription>
+            </Alert>
+          )}
+
+          {submitError && (
+            <Alert status="error">
+              <AlertIcon />
+              <AlertTitle>Failed to send message</AlertTitle>
+              <AlertDescription>
+                Please try again later or contact me through other means.
+              </AlertDescription>
+            </Alert>
+          )}
+          <form onSubmit={handleFormSubmit} className="flex gap-2 flex-col">
             <FormControl isInvalid={!!errors.name}>
               <FormLabel>Name</FormLabel>
               <Input

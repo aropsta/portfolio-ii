@@ -8,6 +8,7 @@ interface Props {
   project: ProjectItem;
 }
 
+//TODO: add a component to show techstack svg's for
 const ProjectCard = ({ project }: Props) => {
   return (
     <Card

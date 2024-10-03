@@ -106,7 +106,7 @@ const Projects = () => {
           ))}
         </Flex>
 
-        <Divider></Divider>
+        <Divider colorScheme="primary" />
 
         <Carousel items={projects} />
       </Container>

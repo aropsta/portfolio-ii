@@ -69,6 +69,7 @@ const Navbar = () => {
               fontWeight="600"
               scrollBehavior="smooth"
               fontSize="17px"
+              onClick={() => setNavOpen(false)}
               _hover={{ color: "primary.400" }}
               transition="color 0.24s ease"
               href={item.href}
