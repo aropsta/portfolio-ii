@@ -37,7 +37,7 @@ export const projectList: ProjectItem[] = [
       "Chakra UI",
       "Axios",
       "React Query",
-      "Zustand",
+      "zustand",
     ],
   },
   {
@@ -57,7 +57,6 @@ export const projectList: ProjectItem[] = [
       "MySQL",
       "Prisma ORM",
       "nextauth.js",
-
       "Axios",
     ],
   },

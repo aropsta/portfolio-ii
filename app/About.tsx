@@ -17,7 +17,7 @@ const About = () => {
   return (
     <CustomContainer className="flex gap-1 flex-col" bgColor="white">
       <Flex className="sm:flex-row flex flex-col gap-6">
-        <Box className="flex relative flex-col max-w-[36rem] gap-6 flex-1">
+        <Box className="flex relative flex-col gap-6 flex-1 sm:w-[50%]">
           <Heading as="h2" color="primary.400">
             ABOUT ME
           </Heading>
@@ -43,12 +43,9 @@ const About = () => {
           alt="Nvim screenshot"
           borderRadius="md"
           alignSelf="center"
-          width="100%"
-          height="100%"
           objectFit="contain"
-          className="flex-1"
+          className="sm:w-[50%] flex-1"
         ></Image>
-        <div></div>
       </Flex>
     </CustomContainer>
   );

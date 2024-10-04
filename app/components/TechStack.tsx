@@ -37,6 +37,7 @@ export default function TechStack({ items }: Props) {
       >
         Tech
       </Text>
+      <Text>{items.filter((item) => item === "nextauth.js")}</Text>
       {items.map((item, index) => (
         <Tooltip label={item} hasArrow key={index}>
           <Image
