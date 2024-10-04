@@ -5,7 +5,15 @@ interface SVGLogo {
   label: string;
   file: string;
 }
-const items: SVGLogo[] = [
+export const techIconMap: Record<string, string> = {
+  HTML: "/html.svg",
+  CSS: "/typescript.svg",
+  nodejs: "/nodejs.svg",
+  python: "/icons/python.svg",
+  // Add more mappings as needed
+};
+
+export const logos: SVGLogo[] = [
   {
     label: "HTML",
     file: "html.svg",
@@ -47,6 +55,10 @@ const items: SVGLogo[] = [
     file: "git.svg",
   },
   {
+    label: "React Hook Form",
+    file: "react-form.svg",
+  },
+  {
     label: "Java",
     file: "java.svg",
   },
@@ -55,7 +67,7 @@ const items: SVGLogo[] = [
     file: "bash.svg",
   },
   {
-    label: "Prisma",
+    label: "Prisma ORM",
     file: "prisma.svg",
   },
   {
@@ -70,12 +82,20 @@ const items: SVGLogo[] = [
     label: "Axios",
     file: "axios.svg",
   },
+  {
+    label: "Chakra UI",
+    file: "chakra.svg",
+  },
+  {
+    label: "Radix UI",
+    file: "radix.svg",
+  },
 ];
 
-const Tech = () => {
+const TechLogos = () => {
   return (
-    <Flex wrap="wrap" gap="2" justifyContent="center">
-      {items.map((item, index) => (
+    <Flex wrap="wrap" gap="3" justifyContent="center">
+      {logos.map((item, index) => (
         <Tooltip label={item.label} hasArrow key={index}>
           <Image
             height="3rem"
@@ -90,4 +110,4 @@ const Tech = () => {
   );
 };
 
-export default Tech;
+export default TechLogos;

@@ -23,10 +23,9 @@ const MorphContainer = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="110%"
-      height="22rem"
-      width="22rem"
       borderRadius="60% 40% 30% 70% / 60% 30% 70% 40%"
       animation={`${morph} 8s ease-in-out infinite`}
+      className="h-[16rem] w-[16rem] self-center sm:h-[22rem] sm:w-[22rem] "
     ></Box>
   );
 };

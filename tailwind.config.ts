@@ -15,6 +15,9 @@ const config: Config = {
       },
     },
   },
+  variants: {
+    fill: ["hover", "focus"],
+  },
   plugins: [],
 };
 export default config;

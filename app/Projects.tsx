@@ -12,6 +12,7 @@ import React from "react";
 import Slideshow from "./components/ImageSlideshow";
 import ProjectCard from "./components/ProjectCard";
 import Carousel from "./components/Carousel";
+import CustomContainer from "./components/CustomContainer";
 
 export interface ProjectItem {
   title: string;
@@ -19,9 +20,10 @@ export interface ProjectItem {
   img: string;
   git: string;
   site: string;
+  tech?: string[];
 }
 
-const projects: ProjectItem[] = [
+export const projectList: ProjectItem[] = [
   {
     title: "Game hub",
     img: "/gamehub.png",
@@ -29,6 +31,14 @@ const projects: ProjectItem[] = [
       "A project which demonstrates my ability to pull, manage and display data from a back-end API service. All displayed in a beautiful user interface. Tech: Typescript, Axios, React, ChakraUI, Zustand for state management",
     git: "https://github.com/aropsta/game-library/",
     site: "https://game-library-psi.vercel.app/",
+    tech: [
+      "React.js",
+      "TypeScript",
+      "Chakra UI",
+      "Axios",
+      "React Query",
+      "Zustand",
+    ],
   },
   {
     title: "Ticket tracker",
@@ -37,6 +47,19 @@ const projects: ProjectItem[] = [
       "A fullstack application used to track and manage different tickets, feature requests, issues or bugs",
     git: "https://github.com/aropsta/issue-tracker/",
     site: "https://issue-tracker-iwav.vercel.app/",
+    tech: [
+      "React.js",
+      "TypeScript",
+      "Radix UI",
+      "Tailwind CSS",
+      "Next.js",
+      "React Hook Form",
+      "MySQL",
+      "Prisma ORM",
+      "nextauth.js",
+
+      "Axios",
+    ],
   },
   {
     title: "Time tracking dashboard",
@@ -91,26 +114,20 @@ const projects: ProjectItem[] = [
 
 const Projects = () => {
   return (
-    <Flex
-      className="w-[100%] py-28"
-      backgroundColor="gray.50"
-      flexDirection="column"
-    >
-      <Container maxWidth="container.lg" className="flex gap-8 flex-col">
-        <Heading color="primary.400" id="projects">
-          Projects
-        </Heading>
-        <Flex justifyContent="center" gap="4" wrap="wrap">
-          {projects.slice(0, 2).map((item, index) => (
-            <ProjectCard key={index} project={item} />
-          ))}
-        </Flex>
+    <CustomContainer bgColor="gray.50" className="flex gap-8 flex-col">
+      <Heading color="primary.400" id="projects">
+        Projects
+      </Heading>
+      <Flex justifyContent="center" gap="4" wrap="wrap">
+        {projectList.slice(0, 2).map((item, index) => (
+          <ProjectCard key={index} project={item} />
+        ))}
+      </Flex>
 
-        <Divider colorScheme="primary" />
+      <Divider colorScheme="primary" />
 
-        <Carousel items={projects} />
-      </Container>
-    </Flex>
+      <Carousel items={projectList} />
+    </CustomContainer>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
@@ -22,8 +23,7 @@ import {
   FormErrorMessage,
   Spinner,
 } from "@chakra-ui/react";
-
-import { useForm } from "react-hook-form";
+import CustomContainer from "./components/CustomContainer";
 
 interface FormInputs {
   name: string;
@@ -34,17 +34,17 @@ interface FormInputs {
 }
 
 const Contact = () => {
-  //TODO: handle submit and form validation
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // initialize emailjs
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
   const {
     register,
     reset,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<FormInputs>();
-
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  // initialize emailjs
-  emailjs.init(EMAILJS_PUBLIC_KEY);
 
   const onSubmit = async (data: FormInputs) => {
     const formData = {
@@ -55,10 +55,8 @@ const Contact = () => {
       message: data.message,
     };
 
-    console.log("onSubmit()", formData);
-
     try {
-      setSubmitError(null); // Clear any previous errors
+      setSubmitError(null);
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -84,99 +82,91 @@ const Contact = () => {
   }
 
   return (
-    <Flex
-      className="w-[100%] h-full py-28"
-      backgroundColor="white"
-      flexDirection="column"
-      id="contact"
-    >
-      <Container maxWidth="container.lg" className="flex gap-16 flex-col">
-        <Card p="10" alignSelf="center" gap="8">
-          <Heading color="primary.400">Contact me</Heading>
-          {isSubmitSuccessful && !submitError && (
-            <Alert status="success">
-              <AlertIcon />
-              <AlertTitle>Message sent!</AlertTitle>
-              <AlertDescription>
-                Thank you for your message. I&apos;ll get back to you soon.
-              </AlertDescription>
-            </Alert>
-          )}
+    <CustomContainer bgColor="white" className="flex gap-16 flex-col">
+      <Card p="10" alignSelf="center" gap="8">
+        <Heading color="primary.400">Contact me</Heading>
+        {isSubmitSuccessful && !submitError && (
+          <Alert status="success">
+            <AlertIcon />
+            <AlertTitle>Message sent!</AlertTitle>
+            <AlertDescription>
+              Thank you for your message. I&apos;ll get back to you soon.
+            </AlertDescription>
+          </Alert>
+        )}
 
-          {submitError && (
-            <Alert status="error">
-              <AlertIcon />
-              <AlertTitle>Failed to send message</AlertTitle>
-              <AlertDescription>
-                Please try again later or contact me through other means.
-              </AlertDescription>
-            </Alert>
-          )}
-          <form onSubmit={handleFormSubmit} className="flex gap-2 flex-col">
-            <FormControl isInvalid={!!errors.name}>
-              <FormLabel>Name</FormLabel>
-              <Input
-                placeholder="Name"
-                {...register("name", {
-                  required: "A name is required",
-                })}
-              />
-              {!!errors.name && ErrorMessage(errors?.name?.message?.toString())}
-            </FormControl>
+        {submitError && (
+          <Alert status="error">
+            <AlertIcon />
+            <AlertTitle>Failed to send message</AlertTitle>
+            <AlertDescription>
+              Please try again later or contact me through other means.
+            </AlertDescription>
+          </Alert>
+        )}
+        <form onSubmit={handleFormSubmit} className="flex gap-2 flex-col">
+          <FormControl isInvalid={!!errors.name}>
+            <FormLabel>Name</FormLabel>
+            <Input
+              placeholder="Name"
+              {...register("name", {
+                required: "A name is required",
+              })}
+            />
+            {!!errors.name && ErrorMessage(errors?.name?.message?.toString())}
+          </FormControl>
 
-            <FormControl isInvalid={!!errors.email}>
-              <FormLabel>Email</FormLabel>
-              <Input
-                placeholder="Email"
-                type="email"
-                {...register("email", { required: "An email is required" })}
-              />
-              {!!errors.email &&
-                ErrorMessage(errors?.email?.message?.toString())}
-            </FormControl>
-            <FormControl>
-              <FormLabel>Phone</FormLabel>
-              <Input
-                placeholder="Phone number"
-                type="tel"
-                {...register("phone")}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Company</FormLabel>
+          <FormControl isInvalid={!!errors.email}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              placeholder="Email"
+              type="email"
+              {...register("email", { required: "An email is required" })}
+            />
+            {!!errors.email && ErrorMessage(errors?.email?.message?.toString())}
+          </FormControl>
+          <FormControl>
+            <FormLabel>Phone</FormLabel>
+            <Input
+              placeholder="Phone number"
+              type="tel"
+              {...register("phone")}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Company</FormLabel>
 
-              <Input placeholder="Company" {...register("company")} />
-            </FormControl>
-            <FormControl isInvalid={!!errors.message}>
-              <FormLabel>Message</FormLabel>
-              <Textarea
-                placeholder="Enter your message"
-                {...register("message", {
-                  required: "A message is required",
-                  minLength: {
-                    value: 20,
-                    message: "Message must be at least 20 characters",
-                  },
-                })}
-              />
-              {!!errors.message &&
-                ErrorMessage(errors?.message?.message?.toString())}
-            </FormControl>
+            <Input placeholder="Company" {...register("company")} />
+          </FormControl>
+          <FormControl isInvalid={!!errors.message}>
+            <FormLabel>Message</FormLabel>
+            <Textarea
+              placeholder="Enter your message"
+              {...register("message", {
+                required: "A message is required",
+                minLength: {
+                  value: 20,
+                  message: "Message must be at least 20 characters",
+                },
+              })}
+            />
+            {!!errors.message &&
+              ErrorMessage(errors?.message?.message?.toString())}
+          </FormControl>
 
-            <Button
-              variant="solid"
-              type="submit"
-              isDisabled={isSubmitting}
-              colorScheme="primary"
-              maxWidth="max-content"
-              alignSelf="center"
-            >
-              Send {isSubmitting && <Spinner />}
-            </Button>
-          </form>
-        </Card>
-      </Container>
-    </Flex>
+          <Button
+            variant="solid"
+            type="submit"
+            isDisabled={isSubmitting}
+            colorScheme="primary"
+            maxWidth="max-content"
+            alignSelf="center"
+          >
+            Send {isSubmitting && <Spinner />}
+          </Button>
+        </form>
+      </Card>
+    </CustomContainer>
   );
 };
 

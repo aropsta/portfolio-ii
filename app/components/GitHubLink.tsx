@@ -5,7 +5,7 @@ const GitHubLink = (props: SVGProps<SVGSVGElement>) => (
     href="https://github.com/aropsta"
     target="_blank"
     rel="noopener noreferrer"
-    className="hover:fill-primary"
+    className="hover:fill-primary transition-colors duration-[250ms]"
   >
     <span className="sr-only">Github</span>
 
