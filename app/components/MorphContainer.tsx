@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Text, Image, Box, Heading, Flex, keyframes } from "@chakra-ui/react";
+import { Box, keyframes } from "@chakra-ui/react";
 
 const MorphContainer = () => {
   const morph = keyframes`

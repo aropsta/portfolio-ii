@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Text,
-  Box,
-  Heading,
-  Image,
-  Flex,
-  Container,
-  HStack,
-} from "@chakra-ui/react";
+import { Text, Box, Heading, Image, Flex, HStack } from "@chakra-ui/react";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
 import CustomContainer from "./components/CustomContainer";
@@ -18,15 +10,16 @@ const About = () => {
     <CustomContainer className="flex gap-1 flex-col" bgColor="white">
       <Flex className="sm:flex-row flex flex-col gap-6">
         <Box className="flex relative flex-col gap-6 flex-1 sm:w-[50%]">
-          <Heading as="h2" color="primary.400">
+          <Heading as="h2" color="primary.400" id="about">
             ABOUT ME
           </Heading>
           <Text fontSize="xl" fontWeight="700">
             Front-end developer based in Melbourne, Australia 📍
           </Text>
           <Text color="#555" fontSize="lg">
-            Hey, my name is Arob, and I'm a self-taught Frontend Developer. My
-            passion is to bring forth products from designs and abstract ideas.
+            Hey, my name is Arob, and I&apos;m a self-taught Frontend Developer.
+            My passion is to bring forth products from designs and abstract
+            ideas.
             <br />
             <br />
             My current tech stack is React/Next.js in combination with Tailwind

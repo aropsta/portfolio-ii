@@ -1,15 +1,6 @@
 "use client";
-import {
-  Container,
-  Divider,
-  Flex,
-  Heading,
-  Stack,
-  Wrap,
-} from "@chakra-ui/react";
-import { Link } from "@chakra-ui/next-js";
+import { Divider, Flex, Heading } from "@chakra-ui/react";
 import React from "react";
-import Slideshow from "./components/ImageSlideshow";
 import ProjectCard from "./components/ProjectCard";
 import Carousel from "./components/Carousel";
 import CustomContainer from "./components/CustomContainer";
@@ -28,7 +19,7 @@ export const projectList: ProjectItem[] = [
     title: "Game hub",
     img: "/gamehub.png",
     description:
-      "A project which demonstrates my ability to pull, manage and display data from a back-end API service. All displayed in a beautiful user interface. Tech: Typescript, Axios, React, ChakraUI, Zustand for state management",
+      "A project for demonstrating frontend API management. RAWG API was used to get game information from a backend server. A fully featured project with sorting, pagination, filtering and error and load states handling and global state management.",
     git: "https://github.com/aropsta/game-library/",
     site: "https://game-library-psi.vercel.app/",
     tech: [
@@ -37,7 +28,7 @@ export const projectList: ProjectItem[] = [
       "Chakra UI",
       "Axios",
       "React Query",
-      "zustand",
+      "Zustand",
     ],
   },
   {
@@ -56,7 +47,7 @@ export const projectList: ProjectItem[] = [
       "React Hook Form",
       "MySQL",
       "Prisma ORM",
-      "nextauth.js",
+      "NextAuth.js",
       "Axios",
     ],
   },

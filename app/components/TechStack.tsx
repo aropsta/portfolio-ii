@@ -1,19 +1,6 @@
-import {
-  Image,
-  Flex,
-  Tooltip,
-  Text,
-  Tag,
-  HStack,
-  Heading,
-} from "@chakra-ui/react";
+import { Image, Flex, Tooltip, Text } from "@chakra-ui/react";
 import React from "react";
 import { logos } from "./TechLogos";
-
-type Items = {
-  label: string;
-  file: string;
-};
 
 interface Props {
   items: string[];
@@ -26,6 +13,9 @@ export const getLogoFilePath = (label: string): string => {
 };
 
 export default function TechStack({ items }: Props) {
+  const filteredItems = items.filter(
+    (item) => item !== "NextAuth.js" && item !== "Zustand",
+  );
   return (
     <Flex wrap="wrap" gap="2" justifyContent="start" alignItems="center">
       <Text
@@ -37,8 +27,10 @@ export default function TechStack({ items }: Props) {
       >
         Tech
       </Text>
-      <Text>{items.filter((item) => item === "nextauth.js")}</Text>
-      {items.map((item, index) => (
+      <Text fontWeight="600">
+        {items.filter((item) => item === "NextAuth.js" || item === "Zustand")}
+      </Text>
+      {filteredItems.map((item, index) => (
         <Tooltip label={item} hasArrow key={index}>
           <Image
             src={getLogoFilePath(item)}

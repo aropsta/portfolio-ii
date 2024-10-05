@@ -24,19 +24,20 @@ const ProjectCard = ({ project }: Props) => {
           alt="Screenshot of website"
           borderRadius="sm"
         />
-        <Stack mt="6" spacing="3">
+        <Stack mt="6" spacing="4">
           <Link
             href={project.site}
             referrerPolicy="no-referrer"
             color="primary.400"
             target="_blank"
           >
-            <Heading fontSize="xl" color="primary.600">
+            <Heading fontSize="xl" color="primary.700">
               {project.title}
             </Heading>
           </Link>
 
           <Text color="#555">{project.description}</Text>
+          <TechStack items={project.tech!} />
           <Link
             href={project.git}
             variant="solid"
@@ -44,10 +45,9 @@ const ProjectCard = ({ project }: Props) => {
             color="primary.400"
             target="_blank"
           >
-            Github code
+            Further details
             <ExternalLinkIcon mx="2px" textAlign="center" />
           </Link>
-          <TechStack items={project.tech!} />
         </Stack>
       </CardBody>
     </Card>

@@ -45,8 +45,15 @@ const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
     currentIndex === filtererdItems.length - 1 ? 0 : currentIndex + 1;
 
   return (
-    <Card className="relative flex w-full overflow-hidden flex-col gap-5 p-16">
-      <Heading as="h3" fontSize="2xl" color="primary.400">
+    <Card className="relative flex w-full overflow-hidden flex-col gap-5 p-8">
+      <Heading
+        as="h3"
+        fontSize="2xl"
+        color="primary.400"
+        textAlign="center"
+        textColor="primary.700"
+        pb="4"
+      >
         <Link target="_blank" href={filtererdItems[currentIndex].git}>
           {filtererdItems[currentIndex].title}
         </Link>
@@ -55,8 +62,9 @@ const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
         <Image
           src={filtererdItems[getPrevIndex()].img}
           alt={`Image ${getPrevIndex() + 1}`}
-          width="33%"
+          width="25%"
           opacity={0.4}
+          flexShrink={0}
         />
         <Link
           href={filtererdItems[currentIndex].site}
@@ -64,6 +72,8 @@ const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
           _hover={{
             transform: "scale(1.01)",
           }}
+          flexShrink={0}
+          width="75%"
         >
           <Image
             src={filtererdItems[currentIndex].img}
@@ -73,8 +83,9 @@ const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
         <Image
           src={filtererdItems[getNextIndex()].img}
           alt={`Image ${getNextIndex() + 1}`}
-          width="33%"
+          width="25%"
           opacity={0.4}
+          flexShrink={0}
         />
       </Flex>
       <IconButton

@@ -13,8 +13,6 @@ import {
   AlertDescription,
   Textarea,
   Heading,
-  Flex,
-  Container,
   FormControl,
   FormLabel,
   Input,
@@ -83,7 +81,7 @@ const Contact = () => {
 
   return (
     <CustomContainer bgColor="white" className="flex gap-16 flex-col">
-      <Card p="10" alignSelf="center" gap="8">
+      <Card p="10" alignSelf="center" gap="8" id="contact">
         <Heading color="primary.400">Contact me</Heading>
         {isSubmitSuccessful && !submitError && (
           <Alert status="success">

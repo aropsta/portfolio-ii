@@ -1,4 +1,4 @@
-import { Text, Box, Heading, Flex, Container, Wrap } from "@chakra-ui/react";
+import { Text, Box, Heading, Flex, Wrap } from "@chakra-ui/react";
 import MorphContainer from "./components/MorphContainer";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
@@ -16,8 +16,8 @@ function Hero() {
         <Box className="flex relative flex-col max-w-[36rem] gap-9">
           <Heading fontSize="3.5rem">Front-End React Developer 👋</Heading>
           <Text color="#555" fontSize="lg">
-            Hi, I'm Arob Deng. A passionate Front-end React Developer based in
-            Melbourne, Australia. 📍
+            Hi, I&apos;m Arob Deng. A passionate Front-end React Developer based
+            in Melbourne, Australia. 📍
           </Text>
           <Wrap as="span" className="self-center sm:self-start">
             <LinkedInLink />
