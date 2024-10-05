@@ -62,16 +62,19 @@ const Navbar = () => {
 
   function NavItems({ className }: { className: string }) {
     return (
-      <ul ref={ulRef} className={`${className} gap-4 items-center `}>
+      <ul
+        ref={ulRef}
+        className={`${className} gap-4 items-center backdrop-blur-lg bg-white/80`}
+      >
         {menu.map((item, i) => (
           <li key={i}>
             <Link
               fontWeight="600"
               scrollBehavior="smooth"
-              fontSize="17px"
               onClick={() => setNavOpen(false)}
               _hover={{ color: "primary.400" }}
               transition="color 0.24s ease"
+              className="sm:text-lg text-3xl font-extrabold"
               href={item.href}
             >
               {item.title}
