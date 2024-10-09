@@ -90,6 +90,10 @@ export const logos: SVGLogo[] = [
     label: "Radix UI",
     file: "radix.svg",
   },
+  {
+    label: "D3",
+    file: "d3.svg",
+  },
 ];
 
 const TechLogos = () => {
