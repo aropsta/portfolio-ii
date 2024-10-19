@@ -18,7 +18,7 @@ interface ImageCarouselProps {
 const Carousel = ({ items, interval = 2500 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const filtererdItems = items.filter((item, i) => i > 1);
+  const filtererdItems = items.filter((item, i) => i > 2);
 
   useInterval(() => {
     if (!isPaused) {

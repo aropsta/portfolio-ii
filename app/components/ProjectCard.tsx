@@ -14,9 +14,9 @@ const ProjectCard = ({ project }: Props) => {
   return (
     <Card
       maxW="sm"
-      padding="3"
+      padding="1"
       variant="elevated"
-      className="sm:hover:scale-105 transition-transform ease duration-300"
+      className="sm:hover:scale-105 transition-transform ease duration-200"
     >
       <CardBody>
         <Image
@@ -36,7 +36,9 @@ const ProjectCard = ({ project }: Props) => {
             </Heading>
           </Link>
 
-          <Text color="#555">{project.description}</Text>
+          <Text color="#555" fontSize="sm">
+            {project.description}
+          </Text>
           <TechStack items={project.tech!} />
           <Link
             href={project.git}

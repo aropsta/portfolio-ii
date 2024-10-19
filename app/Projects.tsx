@@ -52,6 +52,15 @@ export const projectList: ProjectItem[] = [
     ],
   },
   {
+    title: "Visual Algorithms",
+    img: "/visual.png",
+    description:
+      "A project to visual showcase sorting algorithms executing in real-time",
+    git: "https://github.com/aropsta/visual-algorithms/",
+    site: "https://visual-algorithms-seven.vercel.app/",
+    tech: ["React.js", "TypeScript", "D3"],
+  },
+  {
     title: "Time tracking dashboard",
     img: "/time-tracking.jpg",
     description: "",
@@ -109,7 +118,7 @@ const Projects = () => {
         Projects
       </Heading>
       <Flex justifyContent="center" gap="4" wrap="wrap">
-        {projectList.slice(0, 2).map((item, index) => (
+        {projectList.slice(0, 3).map((item, index) => (
           <ProjectCard key={index} project={item} />
         ))}
       </Flex>
