@@ -18,6 +18,15 @@ function Hero() {
           <Text color="#555" fontSize="lg">
             Hi, I&apos;m Arob Deng. A passionate Front-end React Developer based
             in Melbourne, Australia. 📍
+            <br />
+            <br />
+            My journey into software development has been driven by passion and
+            practical experience rather than through academic training.
+            <br />
+            <br />
+            Through Hands-on projects, I've built a solid foundation in modern
+            web development, successfully deploying several production
+            applications that serve real users.
           </Text>
           <Wrap as="span" className="self-center sm:self-start">
             <LinkedInLink />

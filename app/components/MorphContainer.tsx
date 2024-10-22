@@ -19,10 +19,10 @@ const MorphContainer = () => {
       boxShadow="dark-lg"
       zIndex="10"
       // backgroundColor="gray"
-      backgroundImage="url('/port.jpg')"
-      backgroundPosition="center"
+      backgroundImage="url('/port.png')"
+      backgroundPosition="50% 80%"
       backgroundRepeat="no-repeat"
-      backgroundSize="110%"
+      backgroundSize="100%"
       borderRadius="60% 40% 30% 70% / 60% 30% 70% 40%"
       animation={`${morph} 8s ease-in-out infinite`}
       className="h-[16rem] w-[16rem] self-center sm:h-[22rem] sm:w-[22rem] "
