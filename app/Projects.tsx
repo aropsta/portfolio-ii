@@ -19,7 +19,7 @@ export const projectList: ProjectItem[] = [
     title: "Game hub",
     img: "/gamehub.png",
     description:
-      "A project for demonstrating frontend API management. RAWG API was used to get game information from a backend server. A fully featured project with sorting, pagination, filtering and error and load states handling and global state management.",
+      "A sophisticated web app showcasing frontend API management with advanced global state mangement and data caching using Zustand and React Query. RAWG API was used to get game information from a backend server. A fully featured project with sorting, pagination, filtering and error and load states handling and efficient data handling",
     git: "https://github.com/aropsta/game-library/",
     site: "https://game-library-psi.vercel.app/",
     tech: [
@@ -35,7 +35,7 @@ export const projectList: ProjectItem[] = [
     title: "Ticket tracker",
     img: "/issue-tracker.png",
     description:
-      "A fullstack application used to track and manage different tickets, feature requests, issues or bugs",
+      "A fullstack business management application used to track and manage different tickets, feature requests, issues or bugs. Features enterprise-grade authentication using NextAuth, a scalable databse solution using MySQL and Prisma ORM and a sophisticated frontend UI created with React and Radix UI",
     git: "https://github.com/aropsta/issue-tracker/",
     site: "https://issue-tracker-iwav.vercel.app/",
     tech: [
