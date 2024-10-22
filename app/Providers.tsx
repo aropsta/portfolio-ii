@@ -23,8 +23,8 @@ const colors = {
 //custom fonts
 //TODO: Make sure emojjis appear proprrly on chrome
 const fonts = {
-  heading: `'Poppins Variable', 'Poppins', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Apple Color Emoji', 'Twemoji Mozilla', sans-serif`,
-  body: `'Poppins Variable', 'Poppins', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Apple Color Emoji', 'Twemoji Mozilla', sans-serif`,
+  heading: `'Poppins Variable', 'Poppins', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif`,
+  body: `'Poppins Variable', 'Poppins', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif`,
 };
 // Extend the theme to include custom colors, fonts, etc
 const theme = extendTheme({

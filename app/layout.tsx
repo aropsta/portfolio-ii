@@ -5,8 +5,6 @@ import Navbar from "./Navbar";
 
 import "@fontsource/noto-sans";
 // import "@fontsource/apple-color-emoji";
-import "twemoji";
-
 // Import Poppins font
 import "@fontsource/poppins/100.css";
 import "@fontsource/poppins/200.css";

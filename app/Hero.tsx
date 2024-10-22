@@ -1,4 +1,12 @@
-import { Text, Box, Heading, Flex, Wrap } from "@chakra-ui/react";
+import {
+  VStack,
+  Text,
+  Box,
+  Heading,
+  Flex,
+  Wrap,
+  Divider,
+} from "@chakra-ui/react";
 import MorphContainer from "./components/MorphContainer";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
@@ -22,11 +30,15 @@ function Hero() {
             <br />
             My journey into software development has been driven by passion and
             practical experience rather than through academic training.
-            <br />
-            <br />
-            Through Hands-on projects, I've built a solid foundation in modern
-            web development, successfully deploying several production
-            applications that serve real users.
+          </Text>
+
+          <Text color="#555" fontSize="lg">
+            Through Hands-on projects, I&apos;ve built a solid foundation in
+            modern web development technologies,
+            <strong>
+              successfully deploying several production applications that can
+              serve real users.
+            </strong>
           </Text>
           <Wrap as="span" className="self-center sm:self-start">
             <LinkedInLink />
@@ -41,12 +53,16 @@ function Hero() {
           {/* ></Image> */}
         </MorphContainer>
       </Flex>
-      <Flex flexDirection="row" className="" gap="4">
-        {/* <Heading color="#2d2e32" as="h2" fontSize="2xl" fontWeight="500"> */}
-        {/*   Tech */}
-        {/* </Heading> */}
-        <TechLogos />
-      </Flex>
+      <VStack>
+        <Divider colorScheme="primary" />
+
+        <Flex flexDirection="row" className="" gap="4">
+          {/* <Heading color="#2d2e32" as="h2" fontSize="2xl" fontWeight="500"> */}
+          {/*   Tech */}
+          {/* </Heading> */}
+          <TechLogos />
+        </Flex>
+      </VStack>
     </CustomContainer>
   );
 }
