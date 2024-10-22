@@ -1,35 +1,27 @@
 "use client";
 import React from "react";
-import {
-  Text,
-  Tooltip,
-  Box,
-  Heading,
-  Image,
-  Flex,
-  HStack,
-} from "@chakra-ui/react";
+import { Text, Box, Heading, Image, Flex, HStack } from "@chakra-ui/react";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
 import CustomContainer from "./components/CustomContainer";
-import { logos } from "./components/TechLogos";
+// import { logos } from "./components/TechLogos";
 
 const About = () => {
   //TODO: image size/flex proportion on chrome
   //
 
-  function getPath(name: string) {
-    const logo = logos.find((item) => item.label === name);
-    return logo ? logo.file : "default.svg"; // Return a default if not found
-  }
-  const items = [
-    "TypeScript",
-    "Next.js",
-    "Tailwind CSS",
-    "Prisma ORM",
-    "MySQL",
-    "React.js",
-  ];
+  // function getPath(name: string) {
+  //   const logo = logos.find((item) => item.label === name);
+  //   return logo ? logo.file : "default.svg"; // Return a default if not found
+  // }
+  // const items = [
+  //   "TypeScript",
+  //   "Next.js",
+  //   "Tailwind CSS",
+  //   "Prisma ORM",
+  //   "MySQL",
+  //   "React.js",
+  // ];
   return (
     <CustomContainer className="flex gap-1 flex-col" bgColor="white">
       <Flex className="sm:flex-row flex flex-col gap-6">
@@ -38,8 +30,8 @@ const About = () => {
             ABOUT ME
           </Heading>
           <Text fontSize="xl" fontWeight="700">
-            Hey, I'm Arob, a Front-end developer based in Melbourne, Australia
-            📍
+            Hey, I&apos;m Arob, a Front-end developer based in Melbourne,
+            Australia 📍
           </Text>
           <Text color="#555" fontSize="lg">
             While my path may not be an academic one, my commitment to writing
