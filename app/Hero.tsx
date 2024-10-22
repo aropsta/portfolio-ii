@@ -21,7 +21,7 @@ function Hero() {
       className="flex gap-16 sm:gap-32 flex-col"
     >
       <Flex className="sm:flex-row flex flex-col gap-8 sm:gap-4">
-        <Box className="flex relative flex-col max-w-[36rem] gap-9">
+        <Box className="flex relative flex-col max-w-[36rem] gap-9 sm:w-[60%]">
           <Heading fontSize="3.5rem">Front-End React Developer 👋</Heading>
           <Text color="#555" fontSize="lg">
             Hi, I&apos;m Arob Deng. A passionate Front-end React Developer based
