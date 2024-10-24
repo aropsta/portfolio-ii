@@ -55,7 +55,7 @@ export const projectList: ProjectItem[] = [
     title: "Visual Algorithms",
     img: "/visual.png",
     description:
-      "A project to visual showcase sorting algorithms executing in real-time",
+      "A project to visually showcase sorting algorithms executing in real-time",
     git: "https://github.com/aropsta/visual-algorithms/",
     site: "https://visual-algorithms-seven.vercel.app/",
     tech: ["React.js", "TypeScript", "D3"],
