@@ -34,7 +34,7 @@ function Hero() {
 
           <Text color="#555" fontSize="lg">
             Through Hands-on projects, I&apos;ve built a solid foundation in
-            modern web development technologies,
+            modern web development technologies,{" "}
             <strong>
               successfully deploying several production applications that can
               serve real users.
