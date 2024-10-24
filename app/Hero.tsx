@@ -18,14 +18,13 @@ function Hero() {
   return (
     <CustomContainer
       bgColor="gray.50"
-      className="flex gap-16 sm:gap-32 flex-col"
+      className="flex gap-16 sm:gap-20 flex-col"
     >
       <Flex className="sm:flex-row flex flex-col gap-8 sm:gap-4">
         <Box className="flex relative flex-col max-w-[36rem] gap-9 sm:w-[60%]">
           <Heading fontSize="3.5rem">Front-End React Developer 👋</Heading>
           <Text color="#555" fontSize="lg">
             Hi, I&apos;m Arob Deng. A passionate Front-end React Developer based
-            in Melbourne, Australia. 📍
             <br />
             <br />
             My journey into software development has been driven by passion and
@@ -33,7 +32,7 @@ function Hero() {
           </Text>
 
           <Text color="#555" fontSize="lg">
-            Through Hands-on projects, I&apos;ve built a solid foundation in
+            Through hands-on projects, I&apos;ve built a solid foundation in
             modern web development technologies,{" "}
             <strong>
               successfully deploying several production applications that can
@@ -45,13 +44,7 @@ function Hero() {
             <GitHubLink />
           </Wrap>
         </Box>
-        <MorphContainer>
-          {/* <Image */}
-          {/*   src="/port6.png" */}
-          {/*   alt="portrait" */}
-          {/*   className="overflow-hidden z-0 w-[100%] h-[100%] bg-contain" */}
-          {/* ></Image> */}
-        </MorphContainer>
+        <MorphContainer />
       </Flex>
       <VStack>
         <Divider colorScheme="primary" />
