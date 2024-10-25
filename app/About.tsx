@@ -44,6 +44,9 @@ const About = () => {
             concepts into working solutions.
             <br />
             <br />
+            <strong>I use arch btw</strong>
+            <br />
+            <br />
           </Text>
           {/* <HStack> */}
           {/*   <Text fontSize="lg" color="#555"> */}

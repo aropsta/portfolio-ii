@@ -24,7 +24,8 @@ function Hero() {
         <Box className="flex relative flex-col max-w-[36rem] gap-9 sm:w-[60%]">
           <Heading fontSize="3.5rem">Front-End React Developer 👋</Heading>
           <Text color="#555" fontSize="lg">
-            Hi, I&apos;m Arob Deng. A passionate Front-end React Developer based
+            Hey, I&apos;m Arob, a Front-end developer based in Melbourne,
+            Australia 📍
             <br />
             <br />
             My journey into software development has been driven by passion and
