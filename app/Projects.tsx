@@ -32,7 +32,7 @@ export const projectList: ProjectItem[] = [
     ],
   },
   {
-    title: "Ticket tracker",
+    title: "Issue tracker",
     img: "/issue-tracker.png",
     description:
       "A fullstack business management application used to track and manage different tickets, feature requests, issues or bugs. Features enterprise-grade authentication using NextAuth, a scalable databse solution using MySQL and Prisma ORM and a sophisticated frontend UI created with React and Radix UI",
