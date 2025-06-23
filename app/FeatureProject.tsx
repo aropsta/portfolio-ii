@@ -132,8 +132,8 @@ const FeaturedProject = () => {
 
             <Text color="gray.700" fontSize="lg" lineHeight="tall">
               Shoplytic transforms grocery shopping by automatically finding the
-              best prices across Australia's major retailers. Users simply build
-              their shopping lists, and our intelligent matching system
+              best prices across Australia&apos;s major retailers. Users simply
+              build their shopping lists, and our intelligent matching system
               identifies identical products across Coles, Woolworths, ALDI, and
               IGA—regardless of how each store names or describes them. The
               platform instantly shows users where to get the best deal for each
@@ -355,7 +355,7 @@ const FeaturedProject = () => {
             Ready to Discuss the Technical Implementation?
           </Heading>
           <Text color="gray.600" maxW="xl" mx="auto">
-            I'd be excited to walk through the system architecture, discuss
+            I&apos;d be excited to walk through the system architecture, discuss
             algorithmic approaches, or dive into the infrastructure and
             deployment strategies.
           </Text>

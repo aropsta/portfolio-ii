@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Text, Box, Heading, Image, Flex, HStack } from "@chakra-ui/react";
+import { Text, Box, Heading, Flex, HStack } from "@chakra-ui/react";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
 import CustomContainer from "./components/CustomContainer";
