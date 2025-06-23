@@ -22,24 +22,25 @@ function Hero() {
     >
       <Flex className="sm:flex-row flex flex-col gap-8 sm:gap-4">
         <Box className="flex relative flex-col max-w-[36rem] gap-9 sm:w-[60%]">
-          <Heading fontSize="3.5rem">Front-End React Developer 👋</Heading>
+          <Heading fontSize="3.5rem">
+            Senior Full-Stack Engineer & System Architect 👋
+          </Heading>
+
           <Text color="#555" fontSize="lg">
-            Hey, I&apos;m Arob, a Front-end developer based in Melbourne,
-            Australia 📍
-            <br />
-            <br />
-            My journey into software development has been driven by passion and
-            practical experience rather than through academic training.
+            I build production systems from algorithms to infrastructure —
+            currently operating a live price comparison platform processing
+            complex data matching for Australian retailers.
           </Text>
 
           <Text color="#555" fontSize="lg">
-            Through hands-on projects, I&apos;ve built a solid foundation in
-            modern web development technologies,{" "}
-            <strong>
-              successfully deploying several production applications that can
-              serve real users.
-            </strong>
+            I design and deploy complete data-driven applications that solve
+            real business problems. My latest production system features
+            sophisticated product matching algorithms, real-time price
+            processing, and runs on custom Kubernetes infrastructure with
+            comprehensive monitoring — all designed, built, and operated
+            independently.
           </Text>
+
           <Wrap as="span" className="self-center sm:self-start">
             <LinkedInLink />
             <GitHubLink />
@@ -51,9 +52,6 @@ function Hero() {
         <Divider colorScheme="primary" />
 
         <Flex flexDirection="row" className="" gap="4">
-          {/* <Heading color="#2d2e32" as="h2" fontSize="2xl" fontWeight="500"> */}
-          {/*   Tech */}
-          {/* </Heading> */}
           <TechLogos />
         </Flex>
       </VStack>

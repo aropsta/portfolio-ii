@@ -7,7 +7,7 @@ import { Text, Image, HStack } from "@chakra-ui/react";
 const menu = [
   {
     title: "Projects",
-    href: "/#projects",
+    href: "/#featured-project",
   },
   {
     title: "About",

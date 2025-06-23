@@ -5,13 +5,6 @@ interface SVGLogo {
   label: string;
   file: string;
 }
-export const techIconMap: Record<string, string> = {
-  HTML: "/html.svg",
-  CSS: "/typescript.svg",
-  nodejs: "/nodejs.svg",
-  python: "/icons/python.svg",
-  // Add more mappings as needed
-};
 
 export const logos: SVGLogo[] = [
   {
@@ -79,20 +72,52 @@ export const logos: SVGLogo[] = [
     file: "mysql.svg",
   },
   {
-    label: "Axios",
-    file: "axios.svg",
-  },
-  {
     label: "Chakra UI",
     file: "chakra.svg",
   },
   {
-    label: "Radix UI",
-    file: "radix.svg",
+    label: "Docker",
+    file: "docker.svg",
   },
   {
-    label: "D3",
-    file: "d3.svg",
+    label: "GCP",
+    file: "gcp.svg",
+  },
+  {
+    label: "Grafana",
+    file: "grafana.svg",
+  },
+  {
+    label: "Prometheus",
+    file: "prometheus.svg",
+  },
+  {
+    label: "Kubernetes",
+    file: "k8s.svg",
+  },
+  {
+    label: "Linux",
+    file: "linux.svg",
+  },
+  {
+    label: "NestJS",
+    file: "nest.svg",
+  },
+  {
+    label: "Shadcn",
+    file: "shadcn.svg",
+  },
+  {
+    label: "Node.js",
+    file: "node.svg",
+  },
+  {
+    label: "PostgreSQL",
+    file: "postgresql.svg",
+  },
+  {
+    label: "Redis",
+    file: "redis.svg",
   },
 ];
 

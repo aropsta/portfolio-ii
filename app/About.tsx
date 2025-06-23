@@ -4,24 +4,9 @@ import { Text, Box, Heading, Image, Flex, HStack } from "@chakra-ui/react";
 import LinkedInLink from "./components/LinkedInLink";
 import GitHubLink from "./components/GitHubLink";
 import CustomContainer from "./components/CustomContainer";
-// import { logos } from "./components/TechLogos";
+import ClickableImage from "./components/ClickableImage";
 
 const About = () => {
-  //TODO: image size/flex proportion on chrome
-  //
-
-  // function getPath(name: string) {
-  //   const logo = logos.find((item) => item.label === name);
-  //   return logo ? logo.file : "default.svg"; // Return a default if not found
-  // }
-  // const items = [
-  //   "TypeScript",
-  //   "Next.js",
-  //   "Tailwind CSS",
-  //   "Prisma ORM",
-  //   "MySQL",
-  //   "React.js",
-  // ];
   return (
     <CustomContainer className="flex gap-1 flex-col" bgColor="white">
       <Flex className="sm:flex-row flex flex-col gap-6">
@@ -30,55 +15,55 @@ const About = () => {
             ABOUT ME
           </Heading>
           <Text fontSize="xl" fontWeight="700">
-            Hey, I&apos;m Arob, a Front-end developer based in Melbourne,
+            Hey, I&apos;m Arob, a Senior Full-Stack Engineer based in Melbourne,
             Australia 📍
           </Text>
           <Text color="#555" fontSize="lg">
-            While my path may not be an academic one, my commitment to writing
-            clear, tested code and solving real-world problems has enabled me to
-            contribute meaningfully to production codebases.
+            I focus on building and running production-ready systems that tackle
+            real-world business challenges. Coming into software engineering
+            through a non-traditional path has given me a different lens—one
+            that’s grounded in building practical, scalable solutions that
+            actually make a difference.
             <br />
             <br />
-            My unique perspective has been shaped by independent learning, a
-            strong problem-solving mindset, and a proven ability to turn
-            concepts into working solutions.
+            Recently, I’ve built and launched a robust price comparison platform
+            that pulls in data from some of Australia’s largest retailers. It
+            handles complex product matching, real-time data processing, and
+            manages thousands of products every day. The entire system runs on a
+            custom Kubernetes setup I designed, with full monitoring,
+            resilience, and disaster recovery baked in.
+            <br />
+            <br />
+            My approach combines technical depth with business awareness,
+            focusing on solutions that work in production under real
+            constraints. From database design and matching algorithms to
+            Kubernetes operations and payment processing, I take end-to-end
+            ownership of the systems I build, including comprehensive
+            documentation for maintainability and disaster recovery.
             <br />
             <br />
             <strong>I use arch btw</strong>
             <br />
             <br />
           </Text>
-          {/* <HStack> */}
-          {/*   <Text fontSize="lg" color="#555"> */}
-          {/*     Current tech stack */}
-          {/*   </Text> */}
-          {/*   {items.map((item, index) => ( */}
-          {/*     <Tooltip label={item} hasArrow key={index}> */}
-          {/*       <Image */}
-          {/*         src={getPath(item)} */}
-          {/*         fontWeight="700" */}
-          {/*         maxHeight="2rem" */}
-          {/*         color="primary.900" */}
-          {/*         maxWidth="6rem" */}
-          {/*         alignSelf="center" */}
-          {/*         alt={item} */}
-          {/*       /> */}
-          {/*     </Tooltip> */}
-          {/*   ))} */}
-          {/* </HStack> */}
           <HStack>
             <LinkedInLink height="2.5rem" width="2.5rem" />
             <GitHubLink height="2.5rem" width="2.5rem" />
           </HStack>
         </Box>
-        <Image
-          src="/nvim.png"
-          alt="Nvim screenshot"
-          borderRadius="md"
-          alignSelf="center"
-          objectFit="contain"
-          className="sm:w-[50%] flex-1"
-        ></Image>
+
+        <Box className="sm:w-[50%] flex-1 space-y-4 self-center">
+          <ClickableImage
+            src="/nvim.png"
+            alt="Development environment with Neovim"
+            caption="Development environment"
+          />
+          <ClickableImage
+            src="/grafana-dashboard.png"
+            alt="Production monitoring dashboard showing system metrics"
+            caption="Live production monitoring and alerting"
+          />
+        </Box>
       </Flex>
     </CustomContainer>
   );

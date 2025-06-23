@@ -115,7 +115,7 @@ const Projects = () => {
   return (
     <CustomContainer bgColor="gray.50" className="flex gap-8 flex-col">
       <Heading color="primary.400" id="projects">
-        Projects
+        Other Projects
       </Heading>
       <Flex justifyContent="center" gap="4" wrap="wrap">
         {projectList.slice(0, 3).map((item, index) => (
