@@ -181,10 +181,13 @@ const FeaturedProject = () => {
         <Tabs
           index={activeTab}
           onChange={setActiveTab}
-          variant="enclosed"
-          colorScheme="primary"
+          colorScheme="purple"
+          size="sm"
+          variant="solid-rounded"
+          shadow="none"
+          borderRadius="md"
         >
-          <TabList mb={8} bg="gray.50" p={2} borderRadius="sm" gap={2}>
+          <TabList mb={8} p={2} borderRadius="md" gap={2}>
             <Tab
               _selected={{ bg: "primary.500", color: "white" }}
               _hover={{ bg: "primary.600", color: "white" }}
