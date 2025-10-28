@@ -15,7 +15,7 @@ const About = () => {
             ABOUT ME
           </Heading>
           <Text fontSize="xl" fontWeight="700">
-            Hey, I&apos;m Arob, a Senior Full-Stack Engineer based in Melbourne,
+            Hey, I&apos;m Arob, a Full-Stack Engineer based in Melbourne,
             Australia 📍
           </Text>
           <Text color="#555" fontSize="lg">

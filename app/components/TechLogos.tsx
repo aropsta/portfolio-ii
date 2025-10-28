@@ -119,6 +119,10 @@ export const logos: SVGLogo[] = [
     label: "Redis",
     file: "redis.svg",
   },
+  {
+    label: "Python",
+    file: "python.svg",
+  },
 ];
 
 const TechLogos = () => {

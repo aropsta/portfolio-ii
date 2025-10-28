@@ -23,7 +23,7 @@ function Hero() {
       <Flex className="sm:flex-row flex flex-col gap-8 sm:gap-4">
         <Box className="flex relative flex-col max-w-[36rem] gap-9 sm:w-[60%]">
           <Heading fontSize="3.5rem">
-            Senior Full-Stack Engineer & System Architect 👋
+            Full-Stack Engineer & System Architect 👋
           </Heading>
 
           <Text color="#555" fontSize="lg">
