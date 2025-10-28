@@ -28,7 +28,7 @@ function Hero() {
 
           <Text color="#555" fontSize="lg">
             I build production systems from algorithms to infrastructure —
-            currently operating a live price comparison platform processing
+            currently operating a live data analytics platform processing
             complex data matching for Australian retailers.
           </Text>
 

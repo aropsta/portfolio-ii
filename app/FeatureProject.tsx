@@ -147,7 +147,7 @@ const FeaturedProject = () => {
                 size="md"
                 rightIcon={<ExternalLinkIcon />}
                 onClick={() =>
-                  window.open("https://beta.shoplytic.com.au", "_blank")
+                  window.open("https://shoplytic.com.au", "_blank")
                 }
               >
                 View Live Platform
